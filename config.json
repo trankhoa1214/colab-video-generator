@@ -1,0 +1,103 @@
+{
+  "supported_languages": {
+    "vi": "Vietnamese",
+    "en": "English",
+    "zh": "Chinese (Simplified)",
+    "zh-TW": "Chinese (Traditional)",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German",
+    "ru": "Russian",
+    "ar": "Arabic",
+    "pt": "Portuguese",
+    "it": "Italian",
+    "pl": "Polish",
+    "tr": "Turkish"
+  },
+  "tts_engines": {
+    "edge-tts": {
+      "name": "Edge TTS (Microsoft)",
+      "free": true,
+      "quality": "high",
+      "supported_languages": ["vi", "en", "zh", "ja", "ko", "es", "fr", "de", "ru", "ar", "pt", "it", "pl", "tr"],
+      "voices": {
+        "vi": ["vi-VN-NhanNeural", "vi-VN-HoaiMyNeural"],
+        "en": ["en-US-AriaNeural", "en-US-GuyNeural", "en-GB-SoniaNeural"],
+        "zh": ["zh-CN-XiaoxuanNeural", "zh-CN-YunyangNeural"],
+        "ja": ["ja-JP-Nanami Neuro", "ja-JP-DaichiNeural"],
+        "ko": ["ko-KR-SunHiNeural", "ko-KR-InJoonNeural"]
+      }
+    },
+    "gtts": {
+      "name": "Google Text-to-Speech",
+      "free": true,
+      "quality": "medium",
+      "supported_languages": ["vi", "en", "zh", "ja", "ko", "es", "fr", "de", "ru", "ar", "pt", "it"]
+    },
+    "pyttsx3": {
+      "name": "pyttsx3 (Offline)",
+      "free": true,
+      "quality": "low",
+      "offline": true,
+      "supported_languages": ["en"]
+    }
+  },
+  "video_generation_models": {
+    "stable_video_diffusion": {
+      "name": "Stable Video Diffusion XL",
+      "model_id": "stabilityai/stable-video-diffusion-img2vid-xt",
+      "vram_required_gb": 24,
+      "precision": "fp16",
+      "free": false
+    },
+    "modelscope": {
+      "name": "ModelScope Text-to-Video",
+      "model_id": "damo/text-to-video-ms-1.7b",
+      "vram_required_gb": 16,
+      "precision": "fp16",
+      "free": true
+    }
+  },
+  "lip_sync_models": {
+    "wav2lip": {
+      "name": "Wav2Lip",
+      "vram_required_gb": 8,
+      "checkpoint": "https://github.com/Rudrabha/Wav2Lip/releases/download/v1/wav2lip_gan.pth",
+      "face_detector": "dlib"
+    },
+    "sadtalker": {
+      "name": "SadTalker",
+      "vram_required_gb": 12,
+      "checkpoint": "https://huggingface.co/spaces/Sunner/SadTalker/blob/main/checkpoints/",
+      "more_expressive": true
+    }
+  },
+  "api_keys": {
+    "gemini": {
+      "description": "Google Generative AI (required for content summarization)",
+      "env_variable": "GEMINI_API_KEY",
+      "free_tier": true,
+      "quota": "50 requests/day"
+    }
+  },
+  "processing_settings": {
+    "max_video_duration_seconds": 600,
+    "video_fps": 24,
+    "video_resolution": "1080p",
+    "audio_sample_rate": 22050,
+    "audio_bitrate": "192k",
+    "vram_optimization": true,
+    "checkpoint_enabled": true,
+    "checkpoint_dir": "/content/drive/MyDrive/colab-video-generator/checkpoints"
+  },
+  "gemini_prompts": {
+    "vi": "Tóm tắt nội dung sau và chia thành 3-5 cảnh chi tiết cho video. Mỗi cảnh nên có mô tả rõ ràng, lời thoại, và gợi ý hình ảnh (visual prompts). Định dạng JSON.",
+    "en": "Summarize the following content and divide it into 3-5 detailed scenes for a video. Each scene should have clear description, script, and visual prompts. Output as JSON.",
+    "zh": "总结以下内容，并将其分为3-5个详细的视频场景。每个场景应具有清晰的描述、脚本和视觉提示。输出为JSON。",
+    "ja": "次のコンテンツを要約し、3〜5つの詳細なビデオシーンに分割します。各シーンには明確な説明、スクリプト、ビジュアルプロンプトが必要です。JSONで出力します。",
+    "ko": "다음 콘텐츠를 요약하고 3-5개의 상세한 비디오 장면으로 나누세요. 각 장면은 명확한 설명, 스크립트 및 시각적 프롬프트가 있어야 합니다. JSON으로 출력하세요.",
+    "es": "Resuma el siguiente contenido y divídalo en 3-5 escenas detalladas para un video. Cada escena debe tener una descripción clara, guión y indicaciones visuales. Salida como JSON."
+  }
+}
